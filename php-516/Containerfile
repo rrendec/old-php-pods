@@ -1,0 +1,7 @@
+FROM centos5:latest
+COPY extras/colors /etc/
+COPY extras/rc.podinit /etc/rc.d/
+RUN --network=host yum -y install epel-release
+RUN --network=host sed -i 's/^mirrorlist/#mirrorlist/; s/^#baseurl/baseurl/; s|download.fedoraproject.org/pub|localhost|' /etc/yum.repos.d/epel.repo
+RUN --network=host yum -y install sudo httpd mod_extract_forwarded php php-mysql
+CMD /bin/bash --rcfile /etc/rc.d/rc.podinit

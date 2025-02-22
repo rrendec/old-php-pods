@@ -1,0 +1,14 @@
+# start httpd instances
+#sudo -u example /usr/sbin/httpd -f /var/www/mipanel/example.com/conf/httpd.conf -k start
+
+# prevent accidental container exit on ^D
+set -o ignoreeof
+
+# load colorized output variables
+source /etc/colors
+
+# set up prompt
+PS1="[${COLOR_GREEN}\h ${COLOR_RED}INIT${COLOR_NORMAL}]\\\$ "
+
+# load user specific configuration for the interactive shell
+source $HOME/.bash_profile
