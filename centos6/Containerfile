@@ -1,0 +1,3 @@
+FROM scratch
+ADD rootfs/opt/ /
+RUN sed -i 's/^mirrorlist/#mirrorlist/; s/^#baseurl/baseurl/; s/mirror.centos.org/localhost/' /etc/yum.repos.d/CentOS-Base.repo
