@@ -8,7 +8,7 @@ set -o ignoreeof
 source /etc/colors
 
 # set up prompt
-PS1="[${COLOR_GREEN}\h ${COLOR_RED}INIT${COLOR_NORMAL}]\\\$ "
+PS1="[${COLOR_GREEN}\h ${COLOR_MAGENTA}INIT${COLOR_NORMAL}]\\\$ "
 
 # load user specific configuration for the interactive shell
 source $HOME/.bash_profile
