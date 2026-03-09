@@ -1,6 +1,6 @@
 FROM fedora11:latest
 COPY extras/colors /etc/
-COPY extras/rc.podinit /etc/rc.d/
-RUN --network=host yum -y install sudo httpd mod_extract_forwarded php php-mysql
+COPY extras/busybox.rc.podinit /etc/rc.d/
+RUN --network=host yum -y install busybox httpd mod_extract_forwarded php php-mysql
 RUN --network=none find / -path /proc -prune -o -path /sys -prune -o -type f -perm /ug+s -print0 | xargs -0 chmod ug-s
 CMD /bin/bash --rcfile /etc/rc.d/rc.podinit
